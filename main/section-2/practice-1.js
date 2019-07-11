@@ -1,5 +1,17 @@
 'use strict';
 
 module.exports = function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+  let result = [];
+  let map = new Map();
+  collection.forEach(item => {
+    if(map.has(item)){
+      map.set(item, map.get(item) + 1);
+    }else{
+      map.set(item, 1);
+    }
+  });
+  map.forEach((value, key, map) => {
+    result.push({key: key, count: value});
+  });
+  return result;
 }
